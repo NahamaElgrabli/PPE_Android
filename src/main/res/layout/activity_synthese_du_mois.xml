@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SyntheseDuMois">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="match_parent"
+                android:layout_height="98dp"
+                android:src="@drawable/gsb" />
+
+            <TextView
+                android:id="@+id/textView_Synthese_du_mois"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:text="Synthese du mois"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="47dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="314dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <ListView
+                    android:id="@+id/listView1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="299dp" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/buttonRetour"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:onClick="clique_Retour"
+            android:text="Retour" />
+
+    </LinearLayout>
+
+</LinearLayout>

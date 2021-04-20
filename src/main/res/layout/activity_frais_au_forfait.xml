@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".FraisAuForfait">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="149dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="91dp"
+                    app:srcCompat="@drawable/gsb" />
+
+                <TextView
+                    android:id="@+id/textView_Frais_Au_Forfait"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:text="Frais Au Forfait"
+                    android:textSize="24sp"
+                    tools:layout_editor_absoluteX="47dp"
+                    tools:layout_editor_absoluteY="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="321dp"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/Type"
+                        android:layout_width="59dp"
+                        android:layout_height="34dp"
+                        android:text="Type:" />
+
+                    <Spinner
+                        android:id="@+id/type"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:entries="@array/TypeForfait" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="61dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/Libelle"
+                        android:layout_width="71dp"
+                        android:layout_height="wrap_content"
+                        android:text="Quantite:" />
+
+                    <EditText
+                        android:id="@+id/Quantite"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="67dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/date"
+                        android:layout_width="56dp"
+                        android:layout_height="wrap_content"
+                        android:text="Date:" />
+
+                    <EditText
+                        android:id="@+id/Date"
+                        android:layout_width="250dp"
+                        android:layout_height="56dp"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:inputType="date" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="Picker"
+                        app:srcCompat="@drawable/calendrier" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/buttonAjouter"
+                    android:layout_width="248dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="save_Data"
+                    android:text="Ajouter" />
+
+                <Button
+                    android:id="@+id/buttonRetour"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="clique_Retour"
+                    android:text="Retour" />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

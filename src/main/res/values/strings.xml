@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string-array name="TypeForfait">
+        <item> </item>
+        <item>Forfait Km</item>
+        <item>Forfait Etape</item>
+        <item>Nuité Hotel</item>
+        <item>Repas Restaurant</item>
+
+    </string-array>
+
+    <string name="some_hint">
+  Type here to filter&#8230;
+ </string>
+
+
+
+
+</resources>
