@@ -47,6 +47,17 @@ public class SQL_Helper extends SQLiteOpenHelper {
             onCreate(sqLiteDatabase);
         }
 
+    /**
+     *insere dans la base de donnée les elements passés en parametre
+     *
+     * @param libele
+     * @param type
+     * @param quantite
+     * @param montant
+     * @param date
+     *
+     * @return null
+     */
         public boolean insertData(String libele, String type , Integer quantite, double montant, String date){
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues contentValues = new ContentValues();
@@ -59,14 +70,27 @@ public class SQL_Helper extends SQLiteOpenHelper {
             return result != -1;
 
         }
-        public Cursor viewData(){
+
+    /**
+     * affiche les elements de la bdd
+     *
+     * @return pointeur
+     */
+    public Cursor viewData(){
             SQLiteDatabase db = this.getReadableDatabase();
             String query = "select * from "+DB_TABLE ;
             Cursor pointeur = db.rawQuery(query, null);
             return pointeur;
 
         }
-        public boolean deleteData(Integer ID){
+
+    /**
+     * suprime le frais dont l'ID est passé en parametre
+     *
+     * @param ID
+     * @return null
+     */
+    public boolean deleteData(Integer ID){
             SQLiteDatabase db = this.getWritableDatabase();
 
             long result = db.delete(DB_TABLE,"ID="+ID,null);
@@ -76,20 +100,34 @@ public class SQL_Helper extends SQLiteOpenHelper {
         }
 
 
-
+    /**
+     * lance la bdd
+     *
+     * @return null
+     * @throws SQLException
+     */
     public SQL_Helper open() throws SQLException {
         //mDbHelper = new SQL_Helper(mCtx);
         mDb = this.getWritableDatabase();
         return this;
     }
 
+    /**
+     * ferme la bdd
+     */
     public void close() {
         if (mDbHelper != null) {
             mDbHelper.close();
         }
     }
 
-
+    /**
+     * renvoie tous les frais dont la date est rentrée en parametre
+     *
+     * @param inputText
+     * @return mCursor
+     * @throws SQLException
+     */
     public Cursor fetchFraisByName(String inputText) throws SQLException {
         Log.w(TAG, inputText);
         Cursor mCursor = null;
@@ -112,6 +150,11 @@ public class SQL_Helper extends SQLiteOpenHelper {
 
     }
 
+    /**
+     * renvoie tous les frais
+     *
+     * @return mCursor
+     */
     public Cursor fetchAllfrais() {
 
         Cursor mCursor = mDb.query(DB_TABLE, new String[] {"rowid _id",ID, Date,

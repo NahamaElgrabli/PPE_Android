@@ -63,6 +63,8 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 
+
+
     <TextView
         android:id="@+id/id"
         android:layout_width="wrap_content"
@@ -126,6 +128,17 @@
         android:layout_marginBottom="-26dp"
         android:layout_toRightOf="@+id/textView4"
         android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="72dp"
+        android:layout_height="31dp"
+        android:layout_below="@id/dateSaisie"
+        android:layout_marginLeft="-27dp"
+        android:layout_marginTop="1dp"
+        android:layout_toRightOf="@+id/dateSaisie"
+        android:text="EFFACER"
+        android:textColor="@android:color/holo_red_dark" />
 
 
 </RelativeLayout>

@@ -12,6 +12,13 @@ public class Parametres extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parametres);
     }
+    /**
+     * Effectue un retour en arrière soit arrete l'activité en cours
+     *
+     * @param view
+     *
+     * @return null
+     */
     public void clique_Retour(View view){
         finish();
     }

@@ -40,6 +40,16 @@ public class FraisAuForfait<JJ> extends MainActivity {
         Date = findViewById(R.id.Date);
     }
 
+    /**
+     * Ajoute les valeurs saisies à la base de donnée;
+     * La fonction verifie dans un premier temps si le visiteur a bien rempli le champ quantité
+     * Elle calcule le montant du frais (produit de la quantité par le montant fixé)
+     * Si la fonction a bien enregistré les frais dans la base de donées, elle affiche un message de succés
+     *
+     * @param view
+     *
+     * @return null
+     */
     public void save_Data(View view) {
         if (Quantite.getText().length()== 0 || Type.getSelectedItemPosition() == 0) { // si rien dans Quantite
              Toast.makeText(FraisAuForfait.this,"Erreur, valeur(s) manquante(s)" ,Toast.LENGTH_LONG).show();
@@ -58,11 +68,19 @@ public class FraisAuForfait<JJ> extends MainActivity {
                 Quantite.setText("");
                 Date.setText("");
                 Toast.makeText(FraisAuForfait.this, "Frais enregistré", Toast.LENGTH_LONG).show();
-                // afficherMessage("succes", "valeur ajoutée");
+                // afficherMessage("Succès", "Valeur ajoutée. " + "Montant= " + montantCalcule);
 
             }
         }
     }
+
+    /**
+     * permet d'avoir un tableau de dates pour saiir une date, mis a jour a la date du jour
+     *
+     * @param vv
+     *
+     * @return null
+     */
         public void Picker (View vv)
         {
             picker = new DatePickerDialog(FraisAuForfait.this,
@@ -75,8 +93,16 @@ public class FraisAuForfait<JJ> extends MainActivity {
             picker.show();
         }
 
+    /**
+     * Effectue un retour en arrière soit arrete l'activité en cours
+     *
+     * @param view
+     *
+     * @return null
+     */
         public void clique_Retour (View view){
             finish();
         }
+
     }
 

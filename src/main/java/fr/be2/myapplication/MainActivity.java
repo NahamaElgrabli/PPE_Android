@@ -15,6 +15,13 @@ import android.widget.Button;
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_main);}
 
+     /**
+      * ouvre la page correspondant au clic
+      *
+      * @param view
+      *
+      * @return null
+      */
      public void onClick(View view){
         if (view.getId() == R.id.buttonFraisForfait) {
             Intent intent = new Intent(getApplicationContext(), FraisAuForfait.class);
@@ -40,6 +47,15 @@ import android.widget.Button;
 
 
      }
+
+     /**
+      *affiche un mesage contenant un titre et un message passe en parametres
+      *
+      * @param titre
+      * @param message
+      *
+      * @return null
+      */
      public void afficherMessage(String titre ,String message){
          AlertDialog.Builder Builder = new AlertDialog.Builder(this) ;
          Builder.setCancelable(true) ;

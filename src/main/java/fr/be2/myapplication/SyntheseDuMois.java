@@ -1,6 +1,7 @@
 package fr.be2.myapplication;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.widget.ListView;
 import android.widget.EditText;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
 
 import static java.lang.Integer.parseInt;
 
@@ -34,10 +37,16 @@ public class SyntheseDuMois  extends Activity {
 
     }
 
+    /**
+     * Générer le ListView a partir de SQLite Database
+     *
+     * @return null
+     *
+     */
     private void displayListView() {
 
 
-        Cursor cursor = BDD.fetchAllfrais();
+        final Cursor cursor = BDD.fetchAllfrais();
 
         // Les colonnes que l’on veut lier
         String[] columns = new String[]{
@@ -69,7 +78,7 @@ public class SyntheseDuMois  extends Activity {
                 to,
                 0);
 
-        ListView listView = (ListView) findViewById(R.id.listView1);
+        final ListView listView = (ListView) findViewById(R.id.listView1);
         // Attribuer l’adapter au ListView
         listView.setAdapter(dataAdapter);
 
@@ -80,20 +89,38 @@ public class SyntheseDuMois  extends Activity {
                                     int position, long id) {
                 // On obtient le curseur, positionne sur la ligne correspondante dans le jeu de résultats
                 Cursor cursor = (Cursor) listView.getItemAtPosition(position);
+                        // On efface le fichier cliqué
+                        String myid =
+                                cursor.getString(cursor.getColumnIndexOrThrow("ID"));
+                        Toast.makeText(getApplicationContext(), "Frais " + myid + " efface", Toast.LENGTH_SHORT).show();
+                        // BDD.deleteData(parseInt(myid));
+                        displayListView();
 
-                // On efface le fichier cliqué
-                String myid =
-                        cursor.getString(cursor.getColumnIndexOrThrow("ID"));
-                Toast.makeText(getApplicationContext(),
-                        myid, Toast.LENGTH_SHORT).show();
-                BDD.deleteData(parseInt(myid));
-                     displayListView();
             }
-        }); }
+        }
+        );
 
-
-    public void clique_Retour(View view){
-        finish();
     }
 
+    /**
+     *  Affiche un message après la suppression d'un frais
+     *
+     * @param v
+     *
+     * @return null
+     */
+    public void doDeleteOnClick(View v) {
+        Toast.makeText(v.getContext(),"You clicked the DELETE button for id " + ((String) v.getTag()), Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * Effectue un retour en arrière soit arrete l'activité en cours
+     *
+     * @param view
+     *
+     * @return null
+     */
+    public void clique_Retour(View view) {
+        finish();
+    }
 }
